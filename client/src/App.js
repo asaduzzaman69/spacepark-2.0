@@ -1,6 +1,6 @@
 import { useState } from "react";
 //Router import
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 // Material UI
 //styled import 
 import { ThemeProvider } from "styled-components";
@@ -27,6 +27,7 @@ const App = () => {
       
         <Route exact path='/login' component={Login} />
         <Route exact path='/client' component={Homepage} />
+        <Redirect from="/" to='/client' />
       </Switch>
     </ThemeProvider>
 

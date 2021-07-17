@@ -4,6 +4,6 @@ export const lightTheme = {
     bgSecond: '#E9EBF1',
     colorPrimary: '#1778F2',
     textGrey: '#B5BCC7',
-    textNavy: '#223B5A',
+    textSecondary: '#223B5A',
 
 }
