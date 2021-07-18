@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import CustomButton from "../custom-button/Custom-button";
 
 
 
@@ -36,13 +37,15 @@ background: ${({theme}) => theme.bgMain};
 }
 `
 
-
 export const IconSvg = styled(FontAwesomeIcon)`
-
     z-index: 2222;
     position: absolute;
     top: 10px;
     left: 12px;
 
+`
 
+
+export const HeaderButton = styled(CustomButton)`
+margin: 0px 12px
 `

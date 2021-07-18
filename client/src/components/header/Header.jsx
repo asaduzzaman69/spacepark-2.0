@@ -1,5 +1,5 @@
 import CustomButton from "../custom-button/Custom-button";
-import { Header as HeaderContainer, HeaderContent, IconSvg, SearchInput } from "./Header.styled";
+import { Header as HeaderContainer, HeaderButton, HeaderContent, IconSvg, SearchInput } from "./Header.styled";
 
 import Avatar from './../avatar/avatar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,10 +23,10 @@ const Header = () => {
                     <IconSvg icon={faSearch} />
                     <SearchInput type="text" />
                 </div>
-                <CustomButton>
+                <HeaderButton>
                     <FontAwesomeIcon icon={faPlusSquare} />
                     <span style={{ marginLeft: '5px' }}>Create</span>
-                </CustomButton>
+                </HeaderButton>
 
                 <Avatar imageUrl="https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg" alt="" />
             </HeaderContent>

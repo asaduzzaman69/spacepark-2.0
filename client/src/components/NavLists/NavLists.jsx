@@ -1,10 +1,16 @@
-import { Card } from "../../shared-styles/Card";
-
+import NavItem from "../NavItem/NavItem";
+import { NavCard } from "./NavLists.styled";
 const NavLists = () => {
     return ( 
-        <Card>
-            hi
-        </Card>
+        <NavCard>
+            <ul>
+            <NavItem/>
+            <NavItem/>
+            <NavItem/>
+            <NavItem/>
+
+            </ul>
+        </NavCard>
      );
 }
  

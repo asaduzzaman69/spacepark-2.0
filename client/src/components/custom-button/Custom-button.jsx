@@ -1,8 +1,8 @@
 import { CustomButtonWrapper } from "./custom-button.styled";
 
-const CustomButton = ({children,handleClick}) => {
+const CustomButton = ({children,className, handleClick, ...otherProps}) => {
     return ( 
-        <CustomButtonWrapper onClick={() => handleClick && handleClick() }>
+        <CustomButtonWrapper {...otherProps} className={className} onClick={() => handleClick && handleClick() }>
            {children}
         </CustomButtonWrapper>
      );
