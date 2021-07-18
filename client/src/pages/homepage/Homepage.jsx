@@ -2,6 +2,7 @@ import Header from "../../components/header/Header";
 import NavLists from "../../components/NavLists/NavLists";
 import RequestCard from "../../components/request-card/request-card";
 import UserCard from "../../components/user-card/user-card";
+import UserContacts from "../../components/user-contacts/user-contacts";
 import { ClientContainer, ClientContent } from "./Homepage.styled";
 
 const Homepage = () => {
@@ -23,6 +24,9 @@ const Homepage = () => {
                     <RequestCard />
                     <br/>
                     <RequestCard />
+                    <br />
+
+                    <UserContacts />
 
                   </div>
               </div>
