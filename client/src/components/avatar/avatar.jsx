@@ -1,8 +1,8 @@
 import { Avator } from "./avatar.styled";
 
-const Avatar = ({imageUrl}) => {
+const Avatar = ({imageUrl, className}) => {
     return ( 
-        <Avator src={imageUrl} alt="" />
+        <Avator className={className} src={imageUrl} alt="" />
      );
 }
  

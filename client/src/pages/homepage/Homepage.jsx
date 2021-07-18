@@ -1,3 +1,4 @@
+import DayImage from "../../components/day-image/DayImage";
 import Header from "../../components/header/Header";
 import NavLists from "../../components/NavLists/NavLists";
 import PostCard from "../../components/post-card/Post-card";
@@ -19,6 +20,8 @@ const Homepage = () => {
                      <NavLists />
                   </div>
                   <div style={{width: '600px', margin: '10px'}}>
+
+                    <DayImage />
                    <PostCard />
                   </div>
                   <div style={{width: "320px"}}>
