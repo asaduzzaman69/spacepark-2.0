@@ -1,5 +1,6 @@
 import Header from "../../components/header/Header";
 import NavLists from "../../components/NavLists/NavLists";
+import PostCard from "../../components/post-card/Post-card";
 import RequestCard from "../../components/request-card/request-card";
 import UserCard from "../../components/user-card/user-card";
 import UserContacts from "../../components/user-contacts/user-contacts";
@@ -17,8 +18,8 @@ const Homepage = () => {
                      <UserCard />
                      <NavLists />
                   </div>
-                  <div style={{width: '600px'}}>
-                     2
+                  <div style={{width: '600px', margin: '10px'}}>
+                   <PostCard />
                   </div>
                   <div style={{width: "320px"}}>
                     <RequestCard />

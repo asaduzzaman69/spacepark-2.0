@@ -8,7 +8,7 @@ const CustomInput = ({handleChange, label, icon, ...otherProps}) => {
     return ( 
         <div>
             {label && <Label>{ label }</Label>}
-            <FontAwesomeIcon icon={faSearch} />
+            {icon &&  <FontAwesomeIcon icon={faSearch} />}
             <Input
             onChange={handleChange}
            {...otherProps}
