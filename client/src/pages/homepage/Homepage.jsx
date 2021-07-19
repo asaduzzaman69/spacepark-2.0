@@ -1,3 +1,4 @@
+import CreatePost from "../../components/create-post/create-post";
 import DayImage from "../../components/day-image/DayImage";
 import Header from "../../components/header/Header";
 import NavLists from "../../components/NavLists/NavLists";
@@ -21,8 +22,10 @@ const Homepage = () => {
                   </div>
                   <div style={{width: '600px', margin: '10px'}}>
 
-                    <DayImage />
-                   <PostCard />
+{/*                   <DayImage />
+                  <PostCard /> */}
+                  <CreatePost />
+
                   </div>
                   <div style={{width: "320px"}}>
                     <RequestCard />
