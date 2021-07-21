@@ -21,32 +21,9 @@ const Homepage = () => {
         <Mainlayout
           left={<LeftNav />}
           right={<RightNav />}
-         middle={<div>Hi</div>}
+         middle={<div>            <CreatePost />
+          </div>}
     />
-
-
-{/*         <div style={{ display: 'flex', height: '100%' }}>
-          <div style={{ width: "250px" }}>
-            <UserCard />
-            <NavLists />
-          </div>
-          <div style={{ width: '600px', margin: '10px' }}>
-
-            {/*                   <DayImage />
-                  <PostCard /> 
-            <CreatePost />
-
-          </div>
-          <div style={{ width: "320px" }}>
-            <RequestCard />
-            <br />
-            <RequestCard />
-            <br />
-
-            <UserContacts />
-
-          </div>
-        </div> */}
 
       </ClientContent>
     </ClientContainer>

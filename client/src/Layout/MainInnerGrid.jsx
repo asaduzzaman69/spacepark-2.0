@@ -19,7 +19,8 @@ const MainInnerGrid  = ({children}) => {
         <div style={{
             display: 'grid',
             gridTemplateColumns: gridColumn,
-            padding:'30px' 
+            padding:'30px',
+            columnGap: '40px' 
         }}>
             {children}
         </div>
