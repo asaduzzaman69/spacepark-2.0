@@ -1,13 +1,12 @@
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { ListItem,ListItemText, ListIcon, ListLink } from "./NavItem.styled";
 
-const NavItem = () => {
+const NavItem = ({icon,label}) => {
     return ( 
        <ListItem>
            <ListLink href="">
-               <ListIcon size="lg" icon={faCalendar} />
+               <ListIcon size="lg" icon={icon} />
                <ListItemText>
-               Notification
+               {label}
                </ListItemText>
            </ListLink>
        </ListItem>

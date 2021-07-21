@@ -2,7 +2,7 @@ import useScreenSize from "../shared-hooks/useScreenSIze";
 
 const MainInnerGrid  = ({children}) => {
     const cols = useScreenSize()
-    const gridColumn;
+    let gridColumn;
 
 
     if(cols === 'col-3') {
@@ -18,7 +18,8 @@ const MainInnerGrid  = ({children}) => {
 
         <div style={{
             display: 'grid',
-            gridTemplateColumns: gridColumn
+            gridTemplateColumns: gridColumn,
+            padding:'30px' 
         }}>
             {children}
         </div>

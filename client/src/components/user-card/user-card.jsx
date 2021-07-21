@@ -5,7 +5,9 @@ import { CardContentWrapper } from "./user-card.styled";
 
 const UserCard = () => {
     return ( 
-        <Card>
+        <Card style={{
+            marginBottom: '25px'
+        }}>
             <Avatar imageUrl='https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg' />
             <CardContentWrapper>
                 <SemiBoldText>Alexdanra Broke</SemiBoldText>
