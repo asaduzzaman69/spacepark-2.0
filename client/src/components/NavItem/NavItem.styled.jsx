@@ -5,6 +5,7 @@ import styled from "styled-components";
 export const ListItem = styled.li`
 position: relative;
 padding: 10px;
+color: #BDC4D4;
 
 &::before {
     content: '';
@@ -12,7 +13,7 @@ padding: 10px;
     height: 1px;
     background: ${({theme}) =>  theme.bgMain};
     position: absolute;
-    top: 51px;
+    top: 55px;
     left: 23px;
 }
 
@@ -20,7 +21,7 @@ padding: 10px;
 
 export const ListLink = styled.a`
 display: inline-block;
-padding: 5px 0px;
+padding: 10px 0px;
 `
 
 export const ListItemText = styled.span`
