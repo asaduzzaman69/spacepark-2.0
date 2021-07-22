@@ -24,7 +24,7 @@ const signup = catchAsync( async (req,res) => {
 
     const result = await newUser.save();
 
-    const token = await jwt.sign({userName: result.userName, _id: result._id},process.env.JWT_PRIVATE_KEY, {
+    const token = await jwt.sign({userName: result.displayName, _id: result._id},process.env.JWT_PRIVATE_KEY, {
         expiresIn: "1d"
     })
 
@@ -53,7 +53,6 @@ const login = catchAsync( async (req,res,next) => {
     }
 
 
-    console.log(isMatched)
 
     const token = jwt.sign({userName: freshUser.userName, _id: freshUser._id}, process.env.JWT_PRIVATE_KEY, {
         expiresIn: '1d'
