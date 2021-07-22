@@ -46,7 +46,8 @@ const getComment = catchAsync( async (req,res) => {
 
 
  const updateComment = catchAsync(async (req,res) => {
-    const newUpdatedComment = await Comment.findOneAndUpdate({postId: req.params.postId}, req.body, {new: true})
+    const newUpdatedComment = await Comment.findOneAndUpdate({_id: req.params.commentId})
+    console.log(req.params.commentId, )
 
     res.status(201).json({
         status: 'success',
@@ -57,9 +58,24 @@ const getComment = catchAsync( async (req,res) => {
 
 })
 
+
+
+const deleteComment = catchAsync( async (req,res) => {
+    const deletedDpcument = await Comment.findOneAndDelete({_id: req.params.commentId} )
+
+    res.status(201).json({
+        status: 'success',
+        data: {
+            comment: deletedDpcument
+        }
+    })
+
+})
+
 module.exports = {
     getAllComments,
     createComment,
     getComment,               
-    updateComment
+    updateComment,
+    deleteComment
 }

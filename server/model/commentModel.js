@@ -5,13 +5,13 @@ const commentSchema = new mongoose.Schema({
     commentBody: {
         type: String,
         require: true,
-        attachments: [
-            {
-                type: String
-            }
-        ],
         // Later we will add user reference and id to populate the data
-    }
+    },
+    attachments: [
+        {
+            type: String
+        }
+    ],
 }, {
     timestamps: true
 })
