@@ -13,8 +13,8 @@ postsRouter.route('/:postId')
 .get(getPost)
 .put(updatePost)
 
-postsRouter.route('/:postId/comments')
-.get(getAllComments)
+
+
 
 
 

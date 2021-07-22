@@ -1,17 +1,6 @@
 const mongoose = require('mongoose');
 
 
-/* 
-
-_id
-creatorId
-postcontent
-attachment
-createdAt
-
-
-*/
-
 const postSchema = new mongoose.Schema({
     creatorId: {
         type: /* mongoose.Types.ObjectId */ String,

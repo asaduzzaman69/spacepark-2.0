@@ -1,6 +1,8 @@
 const catchAsync = require("./../utils/catchAsync");
 const Post = require("./../model/postModal");
 
+
+
 const createPost = catchAsync(async (req, res) => {
   const newPost = new Post(req.body);
   const result = await newPost.save();
@@ -13,6 +15,8 @@ const createPost = catchAsync(async (req, res) => {
   });
 });
 
+
+
 const getPost = catchAsync(async (req, res) => {
   const post = await Post.findOne({ _id: req.params.postId });
   res.status(200).json({
@@ -21,7 +25,8 @@ const getPost = catchAsync(async (req, res) => {
   });
 });
 
-// Is it a good practice To update a document based on request.body full object
+
+
 
 const updatePost = catchAsync(async (req, res) => {
   const updatedPost = await Post.findByIdAndUpdate(
@@ -38,11 +43,10 @@ const updatePost = catchAsync(async (req, res) => {
     status: "succeed",
     updatedPost,
   });
-  
 });
 
 module.exports = {
   createPost,
   getPost,
-  updatePost,
+  updatePost
 };
