@@ -4,12 +4,16 @@ const commentsRoute = require("./router/commentsRoute");
 const postsRouter = require("./router/postRouter");
 const errorHandler = require("./middleware/errorMiddleware");
 const userRouter = require("./router/userRouter");
+var cors = require('cors')
+
 
 
 dotenv.config();
 
 const app = express();
 
+
+app.use(cors())
 
 app.use(express.json());
 

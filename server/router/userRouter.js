@@ -10,8 +10,8 @@ const userRouter = express.Router();
 
 
 
-userRouter.use(protectedRoutes)
-userRouter.post('/signup', signup)
+/* userRouter.use(protectedRoutes)
+ */userRouter.post('/signup', signup)
 userRouter.post('/login', login)
 
 

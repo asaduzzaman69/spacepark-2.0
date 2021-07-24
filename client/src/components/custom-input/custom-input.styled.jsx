@@ -5,6 +5,7 @@ export const Input = styled.input`
     background: ${({theme}) => theme.bgMain};
     padding: 8px 13px;
     border-radius: 7px;
+    width: 100%;
 `
 
 export const Label = styled.label`

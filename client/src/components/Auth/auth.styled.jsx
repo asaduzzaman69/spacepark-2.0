@@ -1,8 +1,8 @@
 import styled  from "styled-components";
-import CustomButton from "../../components/custom-button/Custom-button";
+import CustomButton from "./../custom-button/Custom-button";
 
 
-export const LoginWrapper = styled.div`
+export const AuthWrapper = styled.div`
 position: relative;
 background-color: ${({theme}) => theme.bgMain};
 color: red;
@@ -13,7 +13,7 @@ align-items: center;
 justify-content: center;
 `
 
- export const LoginCardWrapper = styled.div`
+ export const AuthCardWrapper = styled.div`
 
  width: 1200px;
  height: 600px;
@@ -24,10 +24,15 @@ justify-content: center;
  position: relative;
  box-shadow: 10px 10px 20px #663399b0;
 
+
+
+
+ 
+
 ` 
 
 
-export const LoginFormWrapper = styled.div`
+export const AuthFormWrapper = styled.div`
 
 display: flex;
 flex-direction: column;
@@ -35,22 +40,3 @@ align-items: center;
 justify-content: center;
 
 `
-
-
-/* Need to change when we will develop the black theme */
-
-export const LoginHeading = styled.h6`
-font-weight: 600;
-font-size: 26px;
-text-align: center;
-color: black;
-margin-bottom: 20px;
-
-`
-
-
-export const LoginButton = styled(CustomButton)`
-margin: 10px 0px;
-`
-
-/* export const butt */

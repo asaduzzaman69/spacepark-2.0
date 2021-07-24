@@ -3,11 +3,7 @@ import DayImage from "../../components/day-image/DayImage";
 import Header from "../../components/header/Header";
 import LeftNav from "../../components/navbar/LeftNav";
 import RightNav from "../../components/navbar/RightNav";
-import NavLists from "../../components/NavLists/NavLists";
-import PostCard from "../../components/post-card/Post-card";
-import RequestCard from "../../components/request-card/request-card";
-import UserCard from "../../components/user-card/user-card";
-import UserContacts from "../../components/user-contacts/user-contacts";
+import Post from "../../components/Post/Post";
 import Mainlayout from "../../Layout/MainLayout";
 import { ClientContainer, ClientContent } from "./Homepage.styled";
 
@@ -21,9 +17,15 @@ const Homepage = () => {
         <Mainlayout
           left={<LeftNav />}
           right={<RightNav />}
-         middle={<div>            <CreatePost />
-          </div>}
-    />
+          middle={<div>
+            <DayImage />
+
+            <Post />
+
+
+{/*             <CreatePost />
+ */}          </div>}
+        />
 
       </ClientContent>
     </ClientContainer>

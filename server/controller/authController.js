@@ -13,8 +13,13 @@ const { AppError } = require("../utils/appError");
 2) hashing password
 3) create the JWT
 */
-const signup = catchAsync( async (req,res) => {
+const signup = catchAsync( async (req,res,next) => {
     const { displayName,password,avatar, email } = req.body
+
+    if(!displayName && !password && !email  )  {
+
+        next(new AppError('Please Provide neccesary data', 500))
+    }
     const newUser = new User({
         displayName,
         password,
