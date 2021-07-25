@@ -1,31 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiCore } from "../../services/api/core";
 
-
 const INITIAL_STATE = {
-    post: [],
-}
+  posts: [],
+};
 
+export const fetchAllPosts = createAsyncThunk(
+  "users/fetchAllPosts",
+  async (id, thunkApi) => {
+    const API = new ApiCore({ getAll: true });
 
-
-export const fetchUserPost = createAsyncThunk(
-    'users/fetchUserPost',
-    async () => {
-        const API = new ApiCore({getAll: true});
-
-        const posts = await API.getAll('posts');
-        return posts.data
-    }
-)
+    const response = await API.getAll("posts");
+    return response.data;
+  }
+);
 
 const postSlice = createSlice({
-    name: 'post',
-    initialState: INITIAL_STATE,
-    extraReducers: (builder) => {
-        builder.addCase(fetchUserPost.fulfilled, (state,{payload}) => {
-            state.post = payload.posts
-        })
-    }
-})
+  name: "post",
+  initialState: INITIAL_STATE,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllPosts.fulfilled, (state, {payload}) => {
+      state.posts= payload.posts;
+    });
 
-export default postSlice.reducer
+    builder.addCase(fetchAllPosts.rejected, (state, { error }) => {
+      console.log(error);
+    });
+  },
+});
+
+export default postSlice.reducer;

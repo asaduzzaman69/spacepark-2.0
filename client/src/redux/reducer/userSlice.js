@@ -9,6 +9,7 @@ export const fetchCurrentUser = createAsyncThunk(
     async (userID,thunkApi) => {
         const API = new ApiCore({getSingle: true})
         const response = await API.getOne('users',userID)
+        console.log(response)
         return response.data;
     }
 )
@@ -35,7 +36,6 @@ const userSlice = createSlice({
 })
 
 
-export const { } = userSlice;
 
 export default userSlice.reducer
 

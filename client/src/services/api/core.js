@@ -3,7 +3,7 @@ import { apiProvider } from "./provider"
 export class ApiCore {
     constructor(options = {}) {
 
-        if(options.getAll && options.getAll) {
+        if(options.getAll) {
             this.getAll = async (resource) => {
                 return apiProvider.getAll(resource)
             }

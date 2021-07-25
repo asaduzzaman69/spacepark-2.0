@@ -4,7 +4,7 @@ import { handleError, handleRespose } from './response';
 const BASE_URL = 'http://localhost:5000'
 
 const getAll = (resource) => {
-    axios
+    return axios
     .get(`${BASE_URL}/${resource}`)
     .then(handleRespose)
     .catch(handleError)

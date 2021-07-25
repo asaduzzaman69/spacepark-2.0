@@ -3,6 +3,7 @@ import DayImage from "../../components/day-image/DayImage";
 import Header from "../../components/header/Header";
 import LeftNav from "../../components/navbar/LeftNav";
 import RightNav from "../../components/navbar/RightNav";
+import PostPreview from "../../components/post-preview/post-preview";
 import Post from "../../components/Post/Post";
 import Mainlayout from "../../Layout/MainLayout";
 import { ClientContainer, ClientContent } from "./Homepage.styled";
@@ -20,8 +21,10 @@ const Homepage = () => {
           middle={<div>
             <DayImage />
 
-            <Post />
+            <PostPreview />
 
+{/*             <Post />
+ */}
 
 {/*             <CreatePost />
  */}          </div>}
