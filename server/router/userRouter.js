@@ -1,6 +1,6 @@
 const express = require("express");
 const { signup,login } = require("../controller/authController");
-const { getAllUsers } = require("../controller/userController");
+const { getAllUsers, getUser } = require("../controller/userController");
 const { protectedRoutes } = require("../middleware/projectedRoute");
 
 const userRouter = express.Router();
@@ -13,6 +13,9 @@ const userRouter = express.Router();
 /* userRouter.use(protectedRoutes)
  */userRouter.post('/signup', signup)
 userRouter.post('/login', login)
+userRouter
+.route('/:userId')
+.get(getUser)
 
 
 

@@ -10,8 +10,8 @@ export class ApiCore {
         }
 
         if(options.getSingle && options.getSingle) {
-            this.getOne = (id) => {
-                return apiProvider.getOne(id)
+            this.getOne = async (resource,id) => {
+                return apiProvider.getOne(resource,id)
             }
         }
 

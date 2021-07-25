@@ -1,3 +1,6 @@
+const User = require("../model/userModal")
+const catchAsync = require("../utils/catchAsync")
+
 const getAllUsers = (req,res) => {
     res.status(200).json({
         status: "success",
@@ -9,7 +12,21 @@ const getAllUsers = (req,res) => {
 
 
 
+const getUser = catchAsync(async (req,res) => {
+
+    const user = await User.findOne({_id: req.params.userId})
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+        user
+        }
+    })
+
+}) 
+
 
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    getUser
 }

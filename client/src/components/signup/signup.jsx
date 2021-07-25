@@ -33,7 +33,7 @@ const Signup = () => {
             password  
         })  
 
-        window.localStorage.setItem('token', res.token)
+        window.localStorage.setItem('user', JSON.stringify({ token: res.token, id: res.id}))
         history.push('/')
         } catch (err) {
             console.log(err)

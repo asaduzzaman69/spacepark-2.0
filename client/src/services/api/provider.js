@@ -13,7 +13,9 @@ const getAll = (resource) => {
 
 
 const getOne = (resource, id) => {
-    axios
+    console.log(`${BASE_URL}/${resource}/${id}`);
+
+    return axios
     .get(`${BASE_URL}/${resource}/${id}`)
     .then(handleRespose)
     .catch(handleError)
