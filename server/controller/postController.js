@@ -1,7 +1,16 @@
 const catchAsync = require("./../utils/catchAsync");
 const Post = require("./../model/postModal");
 
+const getAllPost = catchAsync(async (req, res) => {
+  const posts = await Post.find();
 
+  res.status(200).json({
+    status: "success",
+    data: {
+      posts,
+    },
+  });
+});
 
 const createPost = catchAsync(async (req, res) => {
   const newPost = new Post(req.body);
@@ -15,8 +24,6 @@ const createPost = catchAsync(async (req, res) => {
   });
 });
 
-
-
 const getPost = catchAsync(async (req, res) => {
   const post = await Post.findOne({ _id: req.params.postId });
   res.status(200).json({
@@ -24,9 +31,6 @@ const getPost = catchAsync(async (req, res) => {
     post,
   });
 });
-
-
-
 
 const updatePost = catchAsync(async (req, res) => {
   const updatedPost = await Post.findByIdAndUpdate(
@@ -48,5 +52,6 @@ const updatePost = catchAsync(async (req, res) => {
 module.exports = {
   createPost,
   getPost,
-  updatePost
+  updatePost,
+  getAllPost
 };

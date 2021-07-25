@@ -8,11 +8,8 @@ export const fetchCurrentUser = createAsyncThunk(
     'users/fetchCurrentUser',
     async (userID,thunkApi) => {
         const API = new ApiCore({getSingle: true})
-        console.log(userID)
         const response = await API.getOne('users',userID)
-        console.log(response)
-
-        return response;
+        return response.data;
     }
 )
 const INITIAL_STATE = {
@@ -30,7 +27,7 @@ const userSlice = createSlice({
         builder.addCase(fetchCurrentUser.fulfilled, (state,action) => {
             console.log(action.payload)
             state.isUserLoggedIn = true
-            state.currentUser = action.payload
+            state.currentUser = action.payload.user
         })
     }
 
@@ -38,7 +35,7 @@ const userSlice = createSlice({
 })
 
 
-export const { } = userSlice
+export const { } = userSlice;
 
 export default userSlice.reducer
 

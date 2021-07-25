@@ -13,8 +13,6 @@ const getAll = (resource) => {
 
 
 const getOne = (resource, id) => {
-    console.log(`${BASE_URL}/${resource}/${id}`);
-
     return axios
     .get(`${BASE_URL}/${resource}/${id}`)
     .then(handleRespose)

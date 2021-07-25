@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 //Router import
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 // Material UI
 //styled import
 import { ThemeProvider } from "styled-components";
@@ -11,22 +11,21 @@ import { lightTheme } from "./theme/theme";
 import Homepage from "./pages/homepage/Homepage";
 import "./App.css";
 import Auth from "./components/Auth/auth";
-import { store } from "./redux/store";
 import {  useDispatch } from 'react-redux'
 import { fetchCurrentUser } from "./redux/reducer/userSlice";
 
 
 const App = () => {
   const [theme, setTheme] = useState("light");
-  const dispatch = useDispatch()
-
+  const history = useHistory();
+  const dispatch = useDispatch();
   useEffect(() => {
     const user = JSON.parse(window.localStorage.getItem("user"));
-    if(user.id) {
-      console.log('I am getting dispatched')
+    if(user && user.id) {
       dispatch(fetchCurrentUser(user.id))
+    } else {
+      history.push('/login')
     }
-    
   }, []);
   return (
       <ThemeProvider theme={lightTheme}>

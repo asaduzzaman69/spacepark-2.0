@@ -4,8 +4,8 @@ export class ApiCore {
     constructor(options = {}) {
 
         if(options.getAll && options.getAll) {
-            this.getAll = () => {
-                return apiProvider.getAll(options.url)
+            this.getAll = async (resource) => {
+                return apiProvider.getAll(resource)
             }
         }
 

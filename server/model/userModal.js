@@ -7,6 +7,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+
+    tagName: {
+        type: String,
+        require: true
+    }
+
+    ,
     avatar: {
         type: String
     },
