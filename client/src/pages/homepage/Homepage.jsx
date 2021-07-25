@@ -1,4 +1,5 @@
 import CreatePost from "../../components/create-post/create-post";
+import DayImagePreview from "../../components/day-image-preview/Day-Image-preview";
 import DayImage from "../../components/day-image/DayImage";
 import Header from "../../components/header/Header";
 import LeftNav from "../../components/navbar/LeftNav";
@@ -19,7 +20,7 @@ const Homepage = () => {
           left={<LeftNav />}
           right={<RightNav />}
           middle={<div>
-            <DayImage />
+            <DayImagePreview />
 
             <PostPreview />
 

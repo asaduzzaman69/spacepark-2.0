@@ -19,3 +19,29 @@ export const DayImageAvatar = styled(Avatar)`
     padding: 4px;
 
 `
+
+
+
+export const AddDayImageAddIconWrapper = styled.span`
+
+background: white;
+    color: ${({theme}) => theme.colorPrimary };
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 12px;
+`
+
+export const AddDayImageButton = styled.span`
+    position: absolute;
+    bottom: 22px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 25px;
+`

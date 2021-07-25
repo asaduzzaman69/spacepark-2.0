@@ -6,12 +6,12 @@ const MainInnerGrid  = ({children}) => {
 
 
     if(cols === 'col-3') {
-        gridColumn = '250px 1fr 330px'
+        gridColumn = '250px minmax(0,1fr) 330px'
     } else if (cols === 'col-2') {
-        gridColumn = '1fr 330px'
+        gridColumn = 'minmax(0,1fr) 330px'
 
     } else {
-        gridColumn = '1fr'
+        gridColumn = 'minmax(0,1fr)'
         
     }
     return ( 
@@ -20,7 +20,8 @@ const MainInnerGrid  = ({children}) => {
             display: 'grid',
             gridTemplateColumns: gridColumn,
             padding:'30px',
-            columnGap: '40px' 
+            columnGap: '40px',
+            height: '100vh'
         }}>
             {children}
         </div>

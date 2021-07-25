@@ -7,22 +7,21 @@ const PostPreview = () => {
     const dispatch = useDispatch()
     const { currentUser } = useSelector(state => state.user);
     const { posts } = useSelector(state => state.post);
-    console.log(posts)
 
     useEffect(() => {
-        if(!Object.keys(currentUser).length) return;
+        if (!Object.keys(currentUser).length) return;
         dispatch(fetchAllPosts())
     }, [currentUser])
-    return ( 
-        <> 
+    return (
+        <>
 
-{
-            posts.map(el => <Post />)
-        } 
-        
+            {
+                posts.map(el => <Post />)
+            }
+
 
         </>
-     );
+    );
 }
- 
+
 export default PostPreview;
