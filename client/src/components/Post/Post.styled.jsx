@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AlignVertical } from "../../shared-styles/alignment";
+import { Card } from "../../shared-styles/Card";
 import { SemiBoldText } from "../../shared-styles/typography";
 
 
@@ -21,4 +22,97 @@ export const PostImageContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(2, 1fr);
+column-gap: 15px;
+row-gap: 15px;
+
+  & > img {
+    height: 100%;
+    border-radius: 10px
+  }
+`
+
+
+export const PostContainer = styled(Card)`
+
+flex-direction: column;
+align-items: flex-start;
+margin: 25px 0px;
+ 
+`
+
+
+export const PostAction = styled.div`
+width: 100%;
+display: flex;
+
+border-top: 1px solid grey;
+border-bottom: 1px solid grey;
+padding:5px 0px;
+margin-top: 10px;
+`
+
+export const PostActionItem = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex: 1;
+padding: 10px;
+border-radius: 5px;
+margin-right: 10px;
+transition: all 0.2s ;
+cursor: pointer;
+
+&:hover {
+  background: #F2F2F2;
+}
+
+`
+
+
+
+// Comment Box component Style    
+
+export const PostCommentBox = styled.div`
+display: flex;
+width: 100%;
+margin-top: 15px;
+`
+
+
+export const PostInputContainer = styled.div`
+flex: 1;
+display: flex;
+background: #eef0f4;
+border-radius: 19px;
+
+`
+
+
+
+// Comment Icon & Icon wrapper
+
+
+export const CommentInput = styled.input`
+  flex: 1;
+  background:transparent;
+  border: none;
+  padding: 0px 15px;
+
+  &:focus {
+    outline: none;
+  }
+`
+
+export const CommentIconContainer = styled.ul`
+
+display: flex;
+align-items: center;
+
+& > li {
+  margin: 4px;
+}
+& > li:nth-child(3) {
+  margin-right: 15px;
+}
+
 `
