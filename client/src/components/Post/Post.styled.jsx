@@ -45,10 +45,11 @@ export const PostAction = styled.div`
 width: 100%;
 display: flex;
 
-border-top: 1px solid grey;
-border-bottom: 1px solid grey;
-padding:5px 0px;
+border-top: 1px solid #CED0D4;
+border-bottom: 1px solid #CED0D4;
+padding: 5px 0px;
 margin-top: 10px;
+color: #a3a5ab;
 `
 
 export const PostActionItem = styled.div`
@@ -110,6 +111,7 @@ align-items: center;
 
 & > li {
   margin: 4px;
+  cursor: pointer;
 }
 & > li:nth-child(3) {
   margin-right: 15px;

@@ -20,7 +20,7 @@ const MainInnerGrid  = ({children}) => {
             display: 'grid',
             gridTemplateColumns: gridColumn,
             padding:'30px',
-            columnGap: '40px',
+            columnGap: '20px',
             height: '100vh'
         }}>
             {children}

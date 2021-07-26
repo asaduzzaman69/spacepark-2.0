@@ -12,7 +12,7 @@ export const ClientContent = styled.div`
 height: 90vh;
 max-width: 1300px;
 width: 1300px;
-background-color: white;
+background-color: #F9FBFC;
 box-shadow: 1px 1px 20px -13px #9ba2ae;
 overflow: hidden;
 border-radius: 23px;

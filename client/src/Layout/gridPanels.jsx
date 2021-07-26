@@ -17,7 +17,7 @@ export const RightPanel = ({children}) => {
 }
 export const MiddlePanel = ({children}) => {
     return  (
-        <div style={{overflow: 'auto'}}>
+        <div style={{overflow: 'auto', padding: '0px 20px'}}>
         {children}
 
         </div>
