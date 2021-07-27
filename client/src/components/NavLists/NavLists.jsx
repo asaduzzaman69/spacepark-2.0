@@ -4,7 +4,9 @@ import { NavCard } from "./NavLists.styled";
 const NavLists = () => {
     return (
         <NavCard>
-            <ul>
+            <ul style={{
+                width: '100%'
+            }}>
                 {
                     NavData.map(({id, ...otherProps}) => <NavItem key={id} {...otherProps}  />)
                 }

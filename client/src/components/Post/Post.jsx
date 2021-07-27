@@ -16,7 +16,7 @@ const Post = () => {
                 </AlignPostHeader>
             </AlignVertical>
 
-            <PostContent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum dolores fugit sit nemo ipsam praesentium doloremque facilis tempore porro eaque recusandae exercitationem, repellat eum suscipit.
+            <PostContent>Sooner or later we must realize there is no station, no one place to arrive at once and for all. The true joy of life is the trip
             </PostContent>
 
             <PostImageContainer>
@@ -27,7 +27,7 @@ const Post = () => {
                         height: '100%'
                     }}
 
-                    src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1626581897/shutterstock_1218765286_m3s3ua.jpg" alt="" width="100%" />
+                    src="https://cdn.pixabay.com/photo/2021/07/19/20/11/kitten-6479019_960_720.jpg" alt="" width="100%" />
                 <img src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223672/150x-1_fnzjp2.jpg" alt="" width="100%" />
                 <img src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223673/434e3e8b6c88779dd5f68706ca28bfa8_bdwmew.jpg" alt="" width="100%" />
 

@@ -15,6 +15,7 @@ margin-bottom: 18px;
 `
 
 export const RequestTextContainer = styled.div `
+margin-left: 12px;
 
 & > h6 {
     margin-left: 3px;

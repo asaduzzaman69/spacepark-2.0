@@ -11,7 +11,7 @@ const DayImagePreview = () => {
             <DayImage>
                 <DayImageUser />
             </DayImage>
-            <DayImage>
+{/*             <DayImage>
                 <DayImageUser />
             </DayImage>
             <DayImage>
@@ -28,7 +28,7 @@ const DayImagePreview = () => {
             </DayImage>
             <DayImage>
                 <DayImageUser />
-            </DayImage>
+            </DayImage> */}
 
         </DayImagePreviewContainer>
     );

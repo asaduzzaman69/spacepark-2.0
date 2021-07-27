@@ -18,10 +18,11 @@ const Header = () => {
             </AlignVertical>
             <HeaderContent>
                 <div style={{
-                    position: 'relative'
+                    position: 'relative',
+                    color: '#C0C8D1'
                 }}>
                     <IconSvg icon={faSearch} />
-                    <SearchInput type="text" />
+                    <SearchInput placeholder="search" type="text" />
                 </div>
                 <HeaderButton>
                     <FontAwesomeIcon icon={faPlusSquare} />

@@ -10,7 +10,9 @@ const RequestCard = () => {
             <ALignRequestCard>
                 <Avatar imageUrl='https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg' />
                 <RequestTextContainer>
-                    <SemiBoldText>Selena Gomez</SemiBoldText> <ThinnerText>Wants to add u to freinds</ThinnerText>
+                    <SemiBoldText>Selena Gomez</SemiBoldText> <ThinnerText style={{
+                        color: '#53667B'
+                    }}>Wants to add u to freinds</ThinnerText>
                 </RequestTextContainer>
             </ALignRequestCard>
             <AlignVertical style={{
