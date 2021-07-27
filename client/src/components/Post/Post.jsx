@@ -28,12 +28,12 @@ const Post = () => {
                     }}
 
                     src="https://cdn.pixabay.com/photo/2021/07/19/20/11/kitten-6479019_960_720.jpg" alt="" width="100%" />
-                <img src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223672/150x-1_fnzjp2.jpg" alt="" width="100%" />
+                <img style={{
+                    backgroundImage:`url(${'https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223672/150x-1_fnzjp2.jpg'})`
+                }} src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223672/150x-1_fnzjp2.jpg" alt="" width="100%" />
                 <img src="https://res.cloudinary.com/dltd4gs4a/image/upload/v1627223673/434e3e8b6c88779dd5f68706ca28bfa8_bdwmew.jpg" alt="" width="100%" />
 
             </PostImageContainer>
-
-
             <PostAction>
                 <PostActionItem>
                     <FontAwesomeIcon icon={faThumbsUp} />

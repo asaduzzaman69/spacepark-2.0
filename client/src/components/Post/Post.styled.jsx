@@ -27,7 +27,8 @@ row-gap: 15px;
 
   & > img {
     height: 100%;
-    border-radius: 10px
+    border-radius: 10px;
+    object-fit: cover;
   }
 `
 

@@ -5,6 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 
 const CustomInput = ({handleChange, label, icon, ...otherProps}) => {
+    console.log(otherProps)
     return ( 
         <div>
             {label && <Label>{ label }</Label>}

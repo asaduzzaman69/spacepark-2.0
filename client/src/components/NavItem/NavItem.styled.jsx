@@ -22,6 +22,8 @@ color: #BDC4D4;
 export const ListLink = styled.a`
 display: inline-block;
 padding: 10px 0px;
+color: #B5BFCB;
+
 `
 
 export const ListItemText = styled.span`
@@ -29,10 +31,12 @@ font-size: 15px;
 margin: 0px 10px;
 color: currentColor;
 font-weight: bold;
+color: #53647D;
 `
 
 
 export const ListIcon = styled(FontAwesomeIcon)`
 color: currentColor;
 margin-left: 15px;
+
 `

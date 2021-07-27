@@ -14,8 +14,7 @@ const PostCard = () => {
                 <Avatar imageUrl='https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg' />
 
                 <FullWidth>
-                    <PostInput />
-
+                    <PostInput placeholder="What's on your mind" />
                 </FullWidth>
             </AlignVertical>
         </Card>

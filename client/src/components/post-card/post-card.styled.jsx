@@ -7,4 +7,8 @@ export const PostInput = styled(CustomInput)`
     border-radius: 25px;
     width: 92%;
     
+    &:focus {
+        outline: none;
+    }
+    
 `
