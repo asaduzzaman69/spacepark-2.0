@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const CreateCardWrap = styled.div`
     color: white;
+    background-color: white;
     display: grid;
     height: 366px;
     grid-template-rows: 60px 1fr 60px;
@@ -12,7 +13,8 @@ export const CreateCardWrap = styled.div`
     grid-template-columns: 500px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 1px 1px 10px #dcdcdccf;
+    box-shadow: none;
+
 
 /*     overflow-y: scroll;
  */

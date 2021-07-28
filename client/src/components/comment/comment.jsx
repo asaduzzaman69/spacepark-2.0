@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { AlignVertical } from "../../shared-styles/alignment";
 import Avatar from "../avatar/avatar"
 import { CommentContent, CommentParagraph, CommentUser } from "./comment.styled";

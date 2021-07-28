@@ -14,12 +14,12 @@ const CreatePost = () => {
         Header
 
         <div>
-          <FontAwesomeIcon icon={faTimes} />
+          <FontAwesomeIcon style={{cursor: 'pointer'}} icon={faTimes} />
         </div>
         </CreateHeader>
 
 
-      <EditableText  onInput={(e) => setPostContent(e.target.innerHTML)} dangerouslySetInnerHTML={{__html: postContent}} / >
+      <EditableText  onInput={(e) => setPostContent(e.target.innerHTML)} dangerouslySetInnerHTML={{__html: postContent}} />
        
        
 

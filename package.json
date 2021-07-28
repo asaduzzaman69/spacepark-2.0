@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "client": "cd client && npm start",
+        "backend": "cd server && nodemon server.js",
+        "dev": "concurrently \"npm run backend\" \"npm run client\""
+},
+    "author": "Himel",
+    "license": "ISC"
+  }
+  

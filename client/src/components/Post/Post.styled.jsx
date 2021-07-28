@@ -40,6 +40,7 @@ flex-direction: column;
 align-items: flex-start;
 margin: 25px 0px;
 padding: 20px 25px;
+box-shadow: none;
  
 `
 
