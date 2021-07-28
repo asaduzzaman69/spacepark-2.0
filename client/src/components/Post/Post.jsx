@@ -1,19 +1,33 @@
-import { faCommentAlt, faGift, faShare, faSmileBeam, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faCommentAlt, faEllipsisH, faGift, faShare, faSmileBeam, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import { AlignVertical } from "../../shared-styles/alignment";
 import { SemiBoldText, ThinnerText } from "../../shared-styles/typography";
 import Avatar from "../avatar/avatar";
-import { AlignPostHeader, PostAction, PostActionItem, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput } from "./Post.styled";
+import Dropdown from "../Dropdown-Menu/Dropdown-Menu";
+import { AlignPostHeader, PostAction, PostActionItem, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput, PostOptionIcon } from "./Post.styled";
 
 const Post = () => {
+
+    const [isOpen,setIsOpen] = useState(false)
     return (
         <PostContainer>
-            <AlignVertical>
+            <AlignVertical style={{
+                width: '100%',
+                justifyContent: 'space-between'
+            }}>
+                <AlignVertical>
                 <Avatar imageUrl="https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg" />
                 <AlignPostHeader>
                     <SemiBoldText>Lenny Bell</SemiBoldText>
                     <ThinnerText>12hr Ago</ThinnerText>
-                </AlignPostHeader>
+                </AlignPostHeader>                    
+                </AlignVertical>
+
+                <div style={{position: 'relative'}}>
+                <PostOptionIcon onClick={() => setIsOpen(!isOpen)}  icon={faEllipsisH} />
+                    <Dropdown isOpen={isOpen} />
+                </div>
             </AlignVertical>
 
             <PostContent>Sooner or later we must realize there is no station, no one place to arrive at once and for all. The true joy of life is the trip

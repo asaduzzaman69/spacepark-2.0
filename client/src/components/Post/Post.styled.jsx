@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { AlignVertical } from "../../shared-styles/alignment";
 import { Card } from "../../shared-styles/Card";
@@ -38,7 +39,7 @@ export const PostContainer = styled(Card)`
 flex-direction: column;
 align-items: flex-start;
 margin: 25px 0px;
-padding: 20px 25px
+padding: 20px 25px;
  
 `
 
@@ -120,3 +121,13 @@ align-items: center;
 }
 
 `
+
+export const PostOptionIcon = styled(FontAwesomeIcon)`
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid #b5bfcb;
+    border-radius: 5px;
+    color: #b5bfcb;
+
+`
+
