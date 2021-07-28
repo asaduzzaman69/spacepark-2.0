@@ -34,7 +34,6 @@ const signup = catchAsync(async (req, res, next) => {
       expiresIn: "1d",
     }
   );
-  console.log(result);
 
   res.status(201).json({
     status: "success",
@@ -60,6 +59,7 @@ const login = catchAsync(async (req, res, next) => {
   }
 
   const token = jwt.sign(
+    
     { userName: freshUser.userName, _id: freshUser._id },
     process.env.JWT_PRIVATE_KEY,
     {

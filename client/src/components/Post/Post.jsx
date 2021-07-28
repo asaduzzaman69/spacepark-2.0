@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AlignVertical } from "../../shared-styles/alignment";
 import { SemiBoldText, ThinnerText } from "../../shared-styles/typography";
 import Avatar from "../avatar/avatar";
+import Comment from "../comment/comment";
 import Dropdown from "../Dropdown-Menu/Dropdown-Menu";
 import { AlignPostHeader, PostAction, PostActionItem, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput, PostOptionIcon } from "./Post.styled";
 
@@ -81,6 +82,8 @@ const Post = () => {
                     </CommentIconContainer>
                 </PostInputContainer>
             </PostCommentBox>
+
+            <Comment />
 
 
         </PostContainer>
