@@ -16,7 +16,7 @@ const PostPreview = () => {
         <>
 
             {
-                posts.map(el => <Post />)
+                posts.map(el => <Post {...el} />)
             }
 
 

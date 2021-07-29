@@ -3,17 +3,18 @@ import CustomButton from './../custom-button/Custom-button'
 import { faImage, faLink, faCode, faSmileBeam, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createUserPost } from "../../redux/reducer/postSlice";
 
 
-const CreatePost = () => {
+const CreatePost = ({}) => {
   const [postContent,setPostContent] = useState('')
   const dispatch = useDispatch()
+  const { currentUser } = useSelector(state => state.user)
 
   const handleSubmit = () => {
     const postObj = {
-      creatorId: 'kjbdaskdb',
+      creator: currentUser._id,
       postContent
     }
     dispatch(createUserPost(postObj))

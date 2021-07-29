@@ -8,8 +8,7 @@ import Comment from "../comment/comment";
 import Dropdown from "../Dropdown-Menu/Dropdown-Menu";
 import { AlignPostHeader, PostAction, PostActionItem, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput, PostOptionIcon } from "./Post.styled";
 
-const Post = () => {
-
+const Post = ({creator,postContent}) => {
     const [isOpen,setIsOpen] = useState(false)
     return (
         <PostContainer>
@@ -20,7 +19,7 @@ const Post = () => {
                 <AlignVertical>
                 <Avatar imageUrl="https://res.cloudinary.com/dltd4gs4a/image/upload/v1625824437/photo-1535713875002-d1d0cf377fde_dkxxa2.jpg" />
                 <AlignPostHeader>
-                    <SemiBoldText>Lenny Bell</SemiBoldText>
+                    <SemiBoldText>{creator?.displayName}</SemiBoldText>
                     <ThinnerText>12hr Ago</ThinnerText>
                 </AlignPostHeader>                    
                 </AlignVertical>
@@ -31,7 +30,7 @@ const Post = () => {
                 </div>
             </AlignVertical>
 
-            <PostContent>Sooner or later we must realize there is no station, no one place to arrive at once and for all. The true joy of life is the trip
+            <PostContent>{postContent}
             </PostContent>
 
             <PostImageContainer>
