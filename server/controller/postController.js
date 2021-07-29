@@ -2,7 +2,7 @@ const catchAsync = require("./../utils/catchAsync");
 const Post = require("./../model/postModal");
 
 const getAllPost = catchAsync(async (req, res) => {
-  const query = Post.find({}).populate("creatorId");
+  const query = Post.find({}).populate("creator");
   const posts = await query;
   console.log(posts);
 
