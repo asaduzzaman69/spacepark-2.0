@@ -2,7 +2,9 @@ const catchAsync = require("./../utils/catchAsync");
 const Post = require("./../model/postModal");
 
 const getAllPost = catchAsync(async (req, res) => {
-  const posts = await Post.find();
+  const query = Post.find({}).populate("creatorId");
+  const posts = await query;
+  console.log(posts);
 
   res.status(200).json({
     status: "success",
@@ -53,5 +55,5 @@ module.exports = {
   createPost,
   getPost,
   updatePost,
-  getAllPost
+  getAllPost,
 };

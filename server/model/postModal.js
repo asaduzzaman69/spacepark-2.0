@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 
 const postSchema = new mongoose.Schema({
-    creatorId: {
-        type: /* mongoose.Types.ObjectId */ String,
+    creator: {
+        type:  mongoose.Types.ObjectId,
         require: true,
+        ref: "User"
     },
     postContent: String,
     attachments: [
@@ -12,7 +13,6 @@ const postSchema = new mongoose.Schema({
             type: String,
             
         },
-    
     ]
 
 
