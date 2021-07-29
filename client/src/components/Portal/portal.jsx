@@ -10,7 +10,6 @@ const Portal = ({
 
 }) => {
 
-    console.log(children)
     const el = document.createElement('div');
 
     useEffect(() => {

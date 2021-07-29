@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux'
 
 const UserCard = () => {
     const {displayName,tagName} = useSelector(state => state.user.currentUser)
-/*     console.log(currentUser)
- */    return ( 
+   return ( 
         <Card style={{
             marginBottom: '25px'
         }}>

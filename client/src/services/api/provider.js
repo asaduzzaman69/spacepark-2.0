@@ -12,6 +12,16 @@ const getAll = (resource) => {
 }
 
 
+const createOne = (resource, data) => {
+    return axios
+    .post(`${BASE_URL}/${resource}`, {
+        ...data
+    })
+    .then(handleRespose)
+    .catch(handleError)
+}
+
+
 const getOne = (resource, id) => {
     return axios
     .get(`${BASE_URL}/${resource}/${id}`)
@@ -47,5 +57,6 @@ export const apiProvider = {
     getAll,
     getOne,
     remove,
-    signUp
+    signUp,
+    createOne
 }

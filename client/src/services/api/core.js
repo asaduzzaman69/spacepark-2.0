@@ -14,6 +14,11 @@ export class ApiCore {
                 return apiProvider.getOne(resource,id)
             }
         }
+        if(options.createOne) {
+            this.createOne = async (resource,data) => {
+                return apiProvider.createOne(resource,data)
+            }
+        }
 
         if(options.remove && options.remove) {
             this.remove = (id) => {

@@ -9,8 +9,10 @@ const postSchema = new mongoose.Schema({
     postContent: String,
     attachments: [
         {
-            type: String
-        }
+            type: String,
+            
+        },
+    
     ]
 
 

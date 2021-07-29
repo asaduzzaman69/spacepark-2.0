@@ -3,8 +3,10 @@ import { ApiCore } from "../../services/api/core";
 
 const INITIAL_STATE = {
   posts: [],
-  isPostModalOpen: false
-  
+  isPostModalOpen: false,
+  isCreating: false,
+  isPostCreatingError: false
+
 };
 
 export const fetchAllPosts = createAsyncThunk(
@@ -16,6 +18,22 @@ export const fetchAllPosts = createAsyncThunk(
     return response.data;
   }
 );
+
+
+export const createUserPost = createAsyncThunk(
+  'users/createUserPost', 
+  async (data,thunkApi) => {
+    console.log(data)
+    const API = new ApiCore({createOne: true})
+    const res = await API.createOne('posts', data)
+    return res.data
+  }
+)
+
+
+
+
+
 
 const postSlice = createSlice({
   name: "post",
@@ -33,6 +51,24 @@ const postSlice = createSlice({
     builder.addCase(fetchAllPosts.rejected, (state, { error }) => {
       console.log(error);
     });
+    builder.addCase(createUserPost.fulfilled, (state, action) => {
+      console.log("fullfield")
+       state.isCreating = false
+    })
+
+    builder.addCase(createUserPost.pending, (state, {payload}) => {
+      console.log('I am pending')
+       state.isCreating = true
+   })
+
+
+
+
+
+    builder.addCase(createUserPost.rejected, (state, {error}) => {
+      state.isCreating = false;
+      state.isPostCreatingError = true
+    })
   },
 });
 

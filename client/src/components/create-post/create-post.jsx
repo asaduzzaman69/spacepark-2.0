@@ -3,10 +3,21 @@ import CustomButton from './../custom-button/Custom-button'
 import { faImage, faLink, faCode, faSmileBeam, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createUserPost } from "../../redux/reducer/postSlice";
 
 
 const CreatePost = () => {
   const [postContent,setPostContent] = useState('')
+  const dispatch = useDispatch()
+
+  const handleSubmit = () => {
+    const postObj = {
+      creatorId: 'kjbdaskdb',
+      postContent
+    }
+    dispatch(createUserPost(postObj))
+  }
   return (
     <CreateCardWrap>
 
@@ -19,13 +30,12 @@ const CreatePost = () => {
         </CreateHeader>
 
 
-      <EditableText  onInput={(e) => setPostContent(e.target.innerHTML)} dangerouslySetInnerHTML={{__html: postContent}} />
-       
+      <EditableText onChange={e => setPostContent(e.target.value)}  value={postContent}   />
        
 
       <BottomPart>
         <div style={{ width: '80px' }}>
-          <CustomButton>Post</CustomButton>
+          <CustomButton handleClick={handleSubmit}>Post</CustomButton>
         </div>
         <Devide>&nbsp;</Devide>
 

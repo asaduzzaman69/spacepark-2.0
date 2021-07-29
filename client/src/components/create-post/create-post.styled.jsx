@@ -14,10 +14,6 @@ export const CreateCardWrap = styled.div`
     border-radius: 8px;
     overflow: hidden;
     box-shadow: none;
-
-
-/*     overflow-y: scroll;
- */
 `
 
 
@@ -31,11 +27,12 @@ export const CreateHeader = styled.div`
 `
 
 
-export const EditableText = styled.div.attrs({
-    contentEditable:  true
-})`
+export const EditableText = styled.textarea`
 padding: 10px;
 color: black;
+resize: none;
+border: none;
+border-bottom:1px solid #e2e2e2 ;
 
 &:focus {
     outline: none;
