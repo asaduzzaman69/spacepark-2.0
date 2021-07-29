@@ -5,12 +5,14 @@ import Portal from "../Portal/portal";
 
 const Modal = ({
     children,
-    isOpen = true
+    isOpen,
 }) => {
+
+console.log(isOpen, children)
 
   
     return (
-        <Portal>
+        <Portal isOpen={isOpen}>
             {
                 isOpen ? (
                     <ModalContainer>

@@ -3,6 +3,8 @@ import { ApiCore } from "../../services/api/core";
 
 const INITIAL_STATE = {
   posts: [],
+  isPostModalOpen: false
+  
 };
 
 export const fetchAllPosts = createAsyncThunk(
@@ -18,7 +20,11 @@ export const fetchAllPosts = createAsyncThunk(
 const postSlice = createSlice({
   name: "post",
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    toggle: (state,action) => {
+      state.isPostModalOpen = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllPosts.fulfilled, (state, {payload}) => {
       state.posts= payload.posts;
@@ -29,5 +35,8 @@ const postSlice = createSlice({
     });
   },
 });
+
+
+export const { toggle } = postSlice.actions
 
 export default postSlice.reducer;

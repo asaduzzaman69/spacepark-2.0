@@ -5,8 +5,12 @@ import Avatar from './../avatar/avatar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { AlignVertical } from "../../shared-styles/alignment";
+import { useDispatch, useSelector } from "react-redux";
+import { toggle } from "../../redux/reducer/postSlice";
 
 const Header = () => {
+const { isPostModalOpen } = useSelector(state => state.post)
+const dispatch = useDispatch() 
     return (
         <HeaderContainer>
             <AlignVertical>
@@ -24,7 +28,7 @@ const Header = () => {
                     <IconSvg icon={faSearch} />
                     <SearchInput placeholder="search" type="text" />
                 </div>
-                <HeaderButton>
+                <HeaderButton handleClick={() => dispatch(toggle(!isPostModalOpen)) } >
                     <FontAwesomeIcon icon={faPlusSquare} />
                     <span style={{ marginLeft: '5px' }}>Create</span>
                 </HeaderButton>

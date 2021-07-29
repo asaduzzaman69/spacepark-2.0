@@ -8,9 +8,14 @@ import Mainlayout from "../../Layout/MainLayout";
 import Modal from "../../components/Modal/Modal";
 import { ClientContainer, ClientContent } from "./Homepage.styled";
 import CreatePost from "../../components/create-post/create-post";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Homepage = () => {
-  return (
+const { isPostModalOpen } = useSelector(state => state.post)
+const dispatch = useDispatch()
+ 
+return (
 
     <ClientContainer>
       <ClientContent>
@@ -20,7 +25,10 @@ const Homepage = () => {
           left={<LeftNav />}
           right={<RightNav />}
           middle={<div>
-            <Modal>
+            <Modal
+             isOpen={isPostModalOpen}
+             handleToggle={() => dispatch(!isPostModalOpen)}
+            >
               <CreatePost />
             </Modal>
             <DayImagePreview />

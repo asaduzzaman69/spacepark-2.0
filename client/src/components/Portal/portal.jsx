@@ -6,6 +6,8 @@ const ModalRoot = document.getElementById('modal-root')
 
 const Portal = ({
     children,
+    isOpen
+
 }) => {
 
     console.log(children)
@@ -16,7 +18,7 @@ const Portal = ({
         return () => {
             ModalRoot.removeChild(el);
         }
-    }, [])
+    }, [isOpen])
     return ReactDOM.createPortal(children, el);
 }
 
