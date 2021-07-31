@@ -16,6 +16,7 @@ const getAllComments = catchAsync(async (req,res) => {
 
 
 const createComment = catchAsync( async (req,res) => {
+    console.log('I am invoked')
     const newComment = new Comment(req.body);
     const result = await newComment.save()
 
@@ -32,8 +33,7 @@ const createComment = catchAsync( async (req,res) => {
 
 
 const getComment = catchAsync( async (req,res) => {
-    const result = await Comment.find({postId: req.params.postId})
-
+    const result = await Comment.find({postId: req.params.postId}).populate('creator')
 
     res.status(200).json({
         status: 'success',
