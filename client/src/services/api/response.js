@@ -3,6 +3,8 @@ export const handleRespose = (response) => {
         return response.results
     }
     if(response.data) {
+        console.log(response.data)
+
         return response.data
     }
 
@@ -11,7 +13,9 @@ export const handleRespose = (response) => {
 
 
 export const handleError = (err) => {
+    console.log(err)
     if(err.data) {
+
         return err.data
     }
 
