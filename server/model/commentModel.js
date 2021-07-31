@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 
 const commentSchema = new mongoose.Schema({
+    postId: {
+        type: mongoose.Types.ObjectId,
+        require: [true, 'Please  provide The ID of the post'],
+    },
     creator: {
         type: mongoose.Types.ObjectId,
         require: [true, 'Please  provide The ID of the comment creator'],

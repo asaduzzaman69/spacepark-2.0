@@ -3,7 +3,8 @@ const {Comment} = require('./../model/commentModel')
 
 
 const getAllComments = catchAsync(async (req,res) => {
-  const result = await Comment.find();
+  const result = await Comment.find({postId: req.params.postId}).populate('creator');
+  console.log(req.params.postId)
 
   res.status(200).json({
       status: "success",
