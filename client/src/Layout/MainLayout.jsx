@@ -6,7 +6,6 @@ import MainInnerGrid from './MainInnerGrid'
 
 const Mainlayout = ({left,right,middle}) => {
     const cols = useScreenSize();
-    console.log(cols)
     let gridContent;
 
 
@@ -39,7 +38,7 @@ const Mainlayout = ({left,right,middle}) => {
 
     return (
 
-        <MainInnerGrid >
+        <MainInnerGrid>
             {gridContent}
         </MainInnerGrid>
 

@@ -19,6 +19,9 @@ import Dropdown from "../Dropdown-Menu/Dropdown-Menu";
 
 // API
 import { ApiCore } from './../../services/api/core'
+import Spinner from "../spinner/spinner";
+
+
 
 
 
@@ -26,19 +29,19 @@ const Post = ({ creator, postContent, _id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [showComment, setShowComment] = useState(false);
     const [commentBody, setCommentBody] = useState('');
-    const [commentsData, setCommentsData] = useState({isFetching: false,isError: false, comments: []});
-    const  { comments,isFetching } = commentsData;
-    
+    const [commentsData, setCommentsData] = useState({ isFetching: false, isError: false, comments: [] });
+    const { comments, isFetching } = commentsData;
+
 
     const { _id: creatorId } = useSelector(state => state.user.currentUser)
-    const API = new ApiCore({ getAll: true,createOne: true  });
+    const API = new ApiCore({ getAll: true, createOne: true });
 
 
 
 
 
     const handleSubmit = async () => {
-         await API.createOne(`posts/${_id}/comments`, {
+        await API.createOne(`posts/${_id}/comments`, {
             commentBody,
             creator: creatorId
         })
@@ -57,11 +60,11 @@ const Post = ({ creator, postContent, _id }) => {
         (async () => {
 
             // I am using local Database. In order to mimic remote database behaiviour, I set this SetTimeout. will be removed before it goes live
-            setCommentsData({...commentsData, isFetching: true})
-            setTimeout( async () => {
-            const comments = await API.getAll(`comments/${_id}`);
-            console.log(comments)
-            setCommentsData({...commentsData, comments: comments.data.comment})
+            setCommentsData({ ...commentsData, isFetching: true })
+            setTimeout(async () => {
+                const comments = await API.getAll(`comments/${_id}`);
+                console.log(comments)
+                setCommentsData({ ...commentsData, comments: comments.data.comment })
             }, 2000)
 
         })()
@@ -128,10 +131,10 @@ const Post = ({ creator, postContent, _id }) => {
 
                 <PostInputContainer>
                     <CommentInput
-                    onChange={(e) => setCommentBody(e.target.value)}
-                    value={commentBody}
-                    placeholder='write a comments...'
-                    onKeyPress={e => e.key === 'Enter' && handleSubmit()}
+                        onChange={(e) => setCommentBody(e.target.value)}
+                        value={commentBody}
+                        placeholder='write a comments...'
+                        onKeyPress={e => e.key === 'Enter' && handleSubmit()}
 
                     />
                     <CommentIconContainer>
@@ -143,26 +146,39 @@ const Post = ({ creator, postContent, _id }) => {
             </PostCommentBox>
 
             {
-                showComment && !isFetching ? (
-                    <>
 
-                        {
-                            comments.length ? (
-                                <>
-                                    {
-                                        comments.map(el => <Comment {...el} /> )
-
-                                    }
-                                </>
-                            
-                        ) : <h5>No comments for this posts</h5>
-                       
-                    }
+         
+            
 
 
-                    </>
-                ) : 'Loading...'
+              
+                        showComment &&  (
+                                    <>
+
+
                 
+                                        {
+                                            isFetching ? (
+                                                <>
+                                                    <Spinner />
+                                                </>
+                                            )
+                                            :  comments.length ? (
+                                                <>
+                                                    {
+                                                        comments.map(el => <Comment {...el} /> )
+                
+                                                    }
+                                                </>
+                                            
+                                        ) : <h5>No comments for this posts</h5>
+                                       
+                                    }
+                
+                
+                                    </>
+                                ) 
+
             }
 
 
