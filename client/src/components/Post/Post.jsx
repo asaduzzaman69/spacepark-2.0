@@ -23,6 +23,9 @@ import Spinner from "../spinner/spinner";
 
 
 
+// first post - ID = 123
+// second post - ID = 456
+
 
 
 const Post = ({ creator, postContent, _id }) => {
@@ -36,6 +39,7 @@ const Post = ({ creator, postContent, _id }) => {
     const { _id: creatorId } = useSelector(state => state.user.currentUser)
     const API = new ApiCore({ getAll: true, createOne: true });
 
+    console.log({_id})
 
 
 
@@ -43,7 +47,8 @@ const Post = ({ creator, postContent, _id }) => {
     const handleSubmit = async () => {
         await API.createOne(`posts/${_id}/comments`, {
             commentBody,
-            creator: creatorId
+            creator: creatorId,
+            postId: _id
         })
 
         setCommentBody('')
@@ -62,10 +67,9 @@ const Post = ({ creator, postContent, _id }) => {
             // I am using local Database. In order to mimic remote database behaiviour, I set this SetTimeout. will be removed before it goes live
             setCommentsData({ ...commentsData, isFetching: true })
             setTimeout(async () => {
-                const comments = await API.getAll(`comments/${_id}`);
-                console.log(comments)
-                setCommentsData({ ...commentsData, comments: comments.data.comment })
-            }, 2000)
+                const comments = await API.getAll(`posts/${_id}/comments`);
+                setCommentsData({ ...commentsData, comments: comments.data.comments })
+             }, 2000)
 
         })()
 
@@ -147,16 +151,9 @@ const Post = ({ creator, postContent, _id }) => {
 
             {
 
-         
-            
-
-
-              
                         showComment &&  (
                                     <>
 
-
-                
                                         {
                                             isFetching ? (
                                                 <>
@@ -171,7 +168,11 @@ const Post = ({ creator, postContent, _id }) => {
                                                     }
                                                 </>
                                             
-                                        ) : <h5>No comments for this posts</h5>
+                                        ) : <h5 style={{
+                                            margin:'15px auto',
+                                            color: '#a3a5ab',
+                                            fontSize: '15px'
+                                        }}>No comments for this posts</h5>
                                        
                                     }
                 
