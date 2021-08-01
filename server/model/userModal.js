@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
     passwordConfirm: {
         type: String,
         require: true
+    },
+    passwordChangedAt: {
+        type: Date,
+        select: false
     }
 })
 
@@ -49,6 +53,16 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.comparePassword = async function(hashPassword,orginalPassowrd) {
     return await bcrypt.compare(orginalPassowrd, hashPassword)
 }
+
+userSchema.methods.isPasswordChanged = function(jwtTimeStamp) {
+    if(this.passwordChangedAt) {
+        const changedAtSecond = this.passwordChangedAt.getTime() / 1000;
+        return jwtTimeStamp <  changedAtSecond
+    }
+    return false;
+
+}
+
 const User = mongoose.model("User",userSchema)
 
 module.exports = User;
