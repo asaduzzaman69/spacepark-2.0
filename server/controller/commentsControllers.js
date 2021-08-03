@@ -17,7 +17,6 @@ const getAllComments = catchAsync(async (req,res) => {
 
 
 const createComment = catchAsync( async (req,res) => {
-    console.log('I am invoked')
     const newComment = new Comment(req.body);
     const result = await newComment.save()
 
