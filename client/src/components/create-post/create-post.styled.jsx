@@ -1,19 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 export const CreateCardWrap = styled.div`
     color: white;
     background-color: white;
     display: grid;
-    height: 366px;
-    grid-template-rows: 60px 1fr 60px;
+    min-height: 420px;
+    max-height: 70vh;
+    height: auto;
+    grid-template-rows: 60px minmax(0 ,1fr) 60px;
     overflow-wrap: break-word;
     width: 500px;
     grid-template-columns: 500px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: none;
+    transition: all 0.4s;
+
 `
 
 
