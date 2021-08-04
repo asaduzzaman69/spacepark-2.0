@@ -18,7 +18,7 @@ userRouter.post("/signup", signup);
 userRouter.post("/login", login);
 
 userRouter.post("/forgotPassword", forgotPassword);
-userRouter.post("/resetPassword", resetPassword);
+userRouter.post("/resetPassword/:token", resetPassword);
 
 userRouter.route("/:userId").get(getUser);
 
