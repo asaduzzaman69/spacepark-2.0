@@ -1,6 +1,7 @@
 const User = require("../model/userModal");
 const catchAsync = require("../utils/catchAsync");
 const jwt = require("jsonwebtoken");
+const bycrypt = require("bcryptjs");
 const crypto = require('crypto');
 const { AppError } = require("../utils/appError");
 
@@ -124,6 +125,36 @@ const resetPassword = catchAsync(async (req, res, next) => {
     status: "success",
     token
   })
+
+})
+
+const updatePassword = catchAsync(async (req, res, next) => {
+
+  // option useless
+
+  const { password, updatePasswordConfirm, updatePassword } = req.body
+
+  const user = await User.findById(req.user.id).select('+password');
+  if (!(await user.comparePassword(user.password, password))) {
+    next(new AppError('Password is incorrect'))
+  }
+  user.password = updatePassword;
+  user.passwordConfirm = updatePasswordConfirm;
+
+  await user.save()
+
+
+  const token = jwt.sign({
+    id: user._id
+  }, process.env.JWT_PRIVATE_KEY, {
+    expiresIn: '1d'
+  })
+
+  res.status(200).json({
+    status: 'success',
+    token
+  })
+
 
 
 })
