@@ -2,7 +2,6 @@ import { AlignVertical } from "../../shared-styles/alignment";
 import { Card } from "../../shared-styles/Card";
 import { FullWidth } from "../../shared-styles/utils.styled";
 import Avatar from "../avatar/avatar";
-import CustomButton from "../custom-button/Custom-button";
 import { PostInput } from "./post-card.styled";
 
 const PostCard = () => {

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CustomInput from "../custom-input/custom-input";
 import { SignupButton } from "./signup.styled";
-import axios from "axios";
 import { ApiCore } from "../../services/api/core";
 import { useHistory } from 'react-router-dom'
 

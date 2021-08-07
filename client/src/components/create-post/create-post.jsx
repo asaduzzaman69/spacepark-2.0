@@ -28,7 +28,6 @@ const CreatePost = ({ isOpen }) => {
     input.click();
     input.onchange = e => {
       console.log(e, input.files)
-      let files = Array.from(input.files);
       setPostImages(URL.createObjectURL(e.target.files[0]))
     };
   }
