@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Styled Component
 import { AlignVertical } from "../../shared-styles/alignment";
 import { SemiBoldText, ThinnerText } from "../../shared-styles/typography";
-import { AlignPostHeader, PostAction, PostActionItem, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput, PostOptionIcon } from "./Post.styled";
+import { AlignPostHeader, PostAction, PostContainer, PostContent, PostImageContainer, PostCommentBox, PostInputContainer, CommentIconContainer, CommentInput, PostOptionIcon } from "./Post.styled";
 
 // redux
 import { useSelector } from 'react-redux';
@@ -16,21 +16,18 @@ import { useSelector } from 'react-redux';
 import Avatar from "../avatar/avatar";
 import Comment from "../comment/comment";
 import Dropdown from "../Dropdown-Menu/Dropdown-Menu";
+import Spinner from "../spinner/spinner";
+import PostItem from "../post-item/post-item";
 
 // API
 import { ApiCore } from './../../services/api/core'
-import Spinner from "../spinner/spinner";
-
-
-
-// first post - ID = 123
-// second post - ID = 456
 
 
 
 const Post = ({ creator, postContent, _id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [showComment, setShowComment] = useState(false);
+    const [commentActives, setCommentActives] = useState([]);
     const [commentBody, setCommentBody] = useState('');
     const [commentsData, setCommentsData] = useState({ isFetching: false, isError: false, comments: [] });
     const { comments, isFetching } = commentsData;
@@ -38,11 +35,6 @@ const Post = ({ creator, postContent, _id }) => {
 
     const { _id: creatorId } = useSelector(state => state.user.currentUser)
     const API = new ApiCore({ getAll: true, createOne: true });
-
-    console.log({_id})
-
-
-
 
     const handleSubmit = async () => {
         await API.createOne(`posts/${_id}/comments`, {
@@ -55,10 +47,26 @@ const Post = ({ creator, postContent, _id }) => {
 
     }
 
+    const handleComment = () => {
+        if (!showComment) {
+            setCommentActives([...commentActives, 'comments'])
+        }
+        else {
+            const newComments = commentActives.filter(el => el !== 'comments');
+            setCommentActives(newComments)
+        }
+        setShowComment((showComment) => !showComment);
+
+    }
+
+    const handleLike = () => {
+
+    }
+
 
     useEffect(() => {
 
-        if (!showComment) return;
+        if (!showComment || comments.length > 0) return;
 
         // Otherwise Fetch Comment about this post
 
@@ -69,7 +77,7 @@ const Post = ({ creator, postContent, _id }) => {
             setTimeout(async () => {
                 const comments = await API.getAll(`posts/${_id}/comments`);
                 setCommentsData({ ...commentsData, comments: comments.data.comments })
-             }, 2000)
+            }, 2000)
 
         })()
 
@@ -113,20 +121,25 @@ const Post = ({ creator, postContent, _id }) => {
 
             </PostImageContainer>
             <PostAction>
-                <PostActionItem>
-                    <FontAwesomeIcon icon={faThumbsUp} />
-                    <span style={{ marginLeft: '7px' }}>Like</span>
-                </PostActionItem>
-                <PostActionItem onClick={() => setShowComment(showComment => !showComment)}>
-                    <FontAwesomeIcon icon={faCommentAlt} />
-                    <span style={{ marginLeft: '7px' }}>Comment</span>
+                <PostItem
+                    text="Like"
+                    icon={faThumbsUp}
+                    handleToggle={handleLike}
+
+                />
+                <PostItem
+                    text="Comment"
+                    icon={faCommentAlt}
+                    handleToggle={ handleComment}
+                    isActive={commentActives.includes('comments')}
+                />
+                <PostItem
+                    text="Share"
+                    icon={faShare}
 
 
-                </PostActionItem>
-                <PostActionItem>
-                    <FontAwesomeIcon icon={faShare} />
-                    <span style={{ marginLeft: '7px' }}>Share</span>
-                </PostActionItem>
+                />
+
             </PostAction>
 
 
@@ -151,34 +164,34 @@ const Post = ({ creator, postContent, _id }) => {
 
             {
 
-                        showComment &&  (
-                                    <>
+                showComment && (
+                    <>
 
+                        {
+                            isFetching ? (
+                                <>
+                                    <Spinner />
+                                </>
+                            )
+                                : comments.length ? (
+                                    <>
                                         {
-                                            isFetching ? (
-                                                <>
-                                                    <Spinner />
-                                                </>
-                                            )
-                                            :  comments.length ? (
-                                                <>
-                                                    {
-                                                        comments.map(el => <Comment {...el} /> )
-                
-                                                    }
-                                                </>
-                                            
-                                        ) : <h5 style={{
-                                            margin:'15px auto',
-                                            color: '#a3a5ab',
-                                            fontSize: '15px'
-                                        }}>No comments for this posts</h5>
-                                       
-                                    }
-                
-                
+                                            comments.map(el => <Comment {...el} />)
+
+                                        }
                                     </>
-                                ) 
+
+                                ) : <h5 style={{
+                                    margin: '15px auto',
+                                    color: '#a3a5ab',
+                                    fontSize: '15px'
+                                }}>No comments for this posts</h5>
+
+                        }
+
+
+                    </>
+                )
 
             }
 
