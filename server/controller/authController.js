@@ -130,31 +130,32 @@ const resetPassword = catchAsync(async (req, res, next) => {
 
 const updatePassword = catchAsync(async (req, res, next) => {
 
-  // option useless
+const  { password, updatePassword,updateConfirmPassword } = req.body;
+const user = User.findOne({_id: req.user._id}).select('+password');
 
-  const { password, updatePasswordConfirm, updatePassword } = req.body
+if(!(await user.comparePassword(user.password, password))) {
+    return next(new AppError('The password is incorrect', 401))
+}
 
-  const user = await User.findById(req.user.id).select('+password');
-  if (!(await user.comparePassword(user.password, password))) {
-    next(new AppError('Password is incorrect'))
-  }
-  user.password = updatePassword;
-  user.passwordConfirm = updatePasswordConfirm;
+user.password = updatePassword;
+user.passwordConfirm = updateConfirmPassword;
 
-  await user.save()
+await user.save();
 
 
-  const token = jwt.sign({
-    id: user._id
-  }, process.env.JWT_PRIVATE_KEY, {
-    expiresIn: '1d'
-  })
+const token = jwt.sign({id: user._id}, process.env.JWT_PRIVATE_KEY, {
+  expiresIn: '1d'
+})
 
-  res.status(200).json({
-    status: 'success',
-    token
-  })
+res.status(200).json({
+  status: 'success',
+  token
+})
 
+
+
+
+// 
 
 
 })
