@@ -8,9 +8,6 @@ const Modal = ({
     isOpen,
 }) => {
 
-console.log(isOpen, children)
-
-  
     return (
         <Portal isOpen={isOpen}>
             {

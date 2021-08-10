@@ -62,18 +62,33 @@ export const Devide = styled.span`
 
 export const PostSvg = styled(FontAwesomeIcon)`
 
-    display: inline-block;
-    margin-right: 14px;
-    color: gainsboro;
-    cursor: pointer;
-    transition: all 0.2s;
+display: inline-block;
+margin-right: 14px;
+color: gainsboro;
+cursor: pointer;
+transition: all 0.2s;
 
-    &:hover {
+&:hover {
        color : #34414F
-    }
+}
 
-    &:nth-child(1) {
+&:nth-child(1) {
         margin-left: 5px;
-    }
+}
     
-    `
+`
+
+export const ImageCross = styled.span`
+    position: absolute;
+    background: #888e93f7;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 12px;
+    right: 0;
+    cursor: pointer;
+`

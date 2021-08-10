@@ -9,35 +9,38 @@ import Modal from "../../components/Modal/Modal";
 import { ClientContainer, ClientContent } from "./Homepage.styled";
 import CreatePost from "../../components/create-post/create-post";
 import { useDispatch, useSelector } from "react-redux";
+import { toggle } from "../../redux/reducer/postSlice";
 
 const Homepage = () => {
-const { isPostModalOpen } = useSelector(state => state.post)
-const dispatch = useDispatch()
- 
-return (
+  const { isPostModalOpen } = useSelector(state => state.post)
+  const dispatch = useDispatch()
+
+  return (
 
     <ClientContainer>
       <ClientContent>
         <Header />
+
+
 
         <Mainlayout
           left={<LeftNav />}
           right={<RightNav />}
           middle={<div>
             <Modal
-             isOpen={isPostModalOpen}
-             handleToggle={() => dispatch(!isPostModalOpen)}
+              isOpen={isPostModalOpen}
+              handleToggle={() => dispatch(toggle())}
             >
-              <CreatePost />
+              <CreatePost handleToggle={() => dispatch(toggle())} />
             </Modal>
             <DayImagePreview />
             <PostCard />
             <PostPreview />
 
-{/*             <Post />
+            {/*             <Post />
  */}
 
-{/*             <CreatePost />
+            {/*             <CreatePost />
  */}          </div>}
         />
 

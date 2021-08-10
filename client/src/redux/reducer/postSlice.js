@@ -40,7 +40,7 @@ const postSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     toggle: (state,action) => {
-      state.isPostModalOpen = action.payload
+      state.isPostModalOpen = !state.isPostModalOpen
     }
   },
   extraReducers: (builder) => {
