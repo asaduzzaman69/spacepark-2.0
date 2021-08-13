@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
+import "./App.css";
 //Router import
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
-// Material UI
 //styled import
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./shared-styles/global-styles";
 // theme
 import { lightTheme } from "./theme/theme";
 //Core component
-import Homepage from "./pages/homepage/Homepage";
-import "./App.css";
+import Client from "./pages/client/client";
 import Auth from "./components/Auth/auth";
+
+// redux
 import {  useDispatch } from 'react-redux'
 import { fetchCurrentUser } from "./redux/reducer/userSlice";
 
@@ -33,8 +34,8 @@ const App = () => {
 
         <Switch>
           <Route exact path="/login" component={Auth} />
-          <Route exact path="/client" component={Homepage} />
-          <Redirect from="/" to="/client" />
+          <Route  path="/client" component={Client} />
+          <Redirect  from="/" to="/client" />
         </Switch>
       </ThemeProvider>
   );

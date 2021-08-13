@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
 
 
 export const ListItem = styled.li`
@@ -19,7 +20,7 @@ color: #BDC4D4;
 
 `
 
-export const ListLink = styled.a`
+export const ListLink = styled(NavLink)`
 display: inline-block;
 padding: 10px 0px;
 color: #B5BFCB;

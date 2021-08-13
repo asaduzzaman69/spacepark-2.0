@@ -3,7 +3,7 @@ import { ListItem,ListItemText, ListIcon, ListLink } from "./NavItem.styled";
 const NavItem = ({icon,label}) => {
     return ( 
        <ListItem>
-           <ListLink href="">
+           <ListLink to='/people' href="">
                <ListIcon size="lg" icon={icon} />
                <ListItemText>
                {label}
