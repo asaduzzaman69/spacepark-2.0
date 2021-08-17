@@ -60,11 +60,6 @@ const postSlice = createSlice({
       console.log('I am pending')
        state.isCreating = true
    })
-
-
-
-
-
     builder.addCase(createUserPost.rejected, (state, {error}) => {
       state.isCreating = false;
       state.isPostCreatingError = true

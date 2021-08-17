@@ -8,15 +8,18 @@ const protectedRoutes = catchAsync(async (req, res, next) => {
   let token;
   if (req.headers.authorization  && req.headers.authorization.startsWith('Bearer')) {
       token =  req.headers.authorization.split(" ")[1];
+      console.log(req.headers.authorization.split(' '))
   }
+  console.log(token)
 
+ 
   if(!token) {
     return next(new AppError('You are not logged In', 401))
   }
   
   const decode = await promisify(jwt.verify)(token, process.env.JWT_PRIVATE_KEY);
 
-  const user = User.findOne({_id: decode._id}).select('+passwordChangedAt')
+  const user = await User.findOne({_id: decode._id}).select('+passwordChangedAt')
 
   if(!user) {
       next(new AppError('The user has been deleted'))
@@ -31,6 +34,7 @@ const protectedRoutes = catchAsync(async (req, res, next) => {
 
 
   req.user = user;
+  console.log(req.user._id)
   next();
 
 

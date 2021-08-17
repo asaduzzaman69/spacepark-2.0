@@ -25,6 +25,11 @@ export class ApiCore {
                 return apiProvider.remove(id)
             }
         }
+        if(options.updateOne) {
+            this.updateOne = (resource,data) => {
+                return apiProvider.updateOne(resource,data)
+            }
+        }
 
         this.signup = (data) => {
             return apiProvider.signUp(data)

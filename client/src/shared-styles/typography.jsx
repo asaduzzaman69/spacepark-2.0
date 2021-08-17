@@ -11,8 +11,7 @@ export const ThinnerText = styled.h6`
 font-size:12px;
 color: ${({theme}) => theme.textGrey};
 font-size: 13px;
-/* color: #8C98A8;
- */font-weight: 500;
+font-weight: 500;
 `
 
 
@@ -22,6 +21,14 @@ justify-content: space-between;
 font-size: 14px;
 text-transform: uppercase;
 margin: 15px 7px;
-color: #A4B0BF;
+margin-top: 0px;
+color: ${({theme}) => theme.textGreyDarker };
 
+`
+
+
+export const NoContent = styled.h3`
+color: ${({theme}) => theme.textGreyDarker };
+text-align: center;
+margin-bottom: 14px;
 `

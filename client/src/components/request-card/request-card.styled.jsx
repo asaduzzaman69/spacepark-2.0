@@ -7,6 +7,7 @@ export const RequestCard = styled(Card)`
 
 flex-direction: column;
 align-items: self-start;
+margin-bottom: 20px;
 `
 
 export const ALignRequestCard = styled(AlignVertical)`

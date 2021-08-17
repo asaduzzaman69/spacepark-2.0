@@ -2,6 +2,11 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import { ApiCore } from '../../services/api/core';
 
 
+const INITIAL_STATE = {
+    isUserLoggedIn: false,
+    currentUser: {},
+    allUsers: []
+}
 
 
 export const fetchCurrentUser = createAsyncThunk(
@@ -12,28 +17,44 @@ export const fetchCurrentUser = createAsyncThunk(
         return response.data;
     }
 )
-const INITIAL_STATE = {
-    isUserLoggedIn: false,
-    currentUser: {}
-}
+
+export const fetchAllUsers = createAsyncThunk(
+    'users/fetchAllUsers',
+    async () => {
+        const API = new ApiCore({getAll: true})
+        const response = await API.getAll('users')
+        return response.data;
+    }
+)
+
 const userSlice = createSlice({
     name: 'user',
     initialState: INITIAL_STATE,
     reducers: {
+        updateCurrentUser: (state,action) => {
+            state.currentUser = action.payload
+
+        }
 
     },
 
     extraReducers: (builder) => {
         builder.addCase(fetchCurrentUser.fulfilled, (state,action) => {
-            console.log(action.payload)
             state.isUserLoggedIn = true
             state.currentUser = action.payload.user
+        })
+
+
+        builder.addCase(fetchAllUsers.fulfilled, (state,action) => {
+            state.allUsers = action.payload.users
         })
     }
 
 
 })
 
+
+export const { updateCurrentUser } = userSlice.actions;
 
 
 export default userSlice.reducer

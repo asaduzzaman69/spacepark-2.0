@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
+import styled, {css } from "styled-components";
 import { NavLink } from 'react-router-dom';
 
 
@@ -7,6 +7,9 @@ export const ListItem = styled.li`
 position: relative;
 padding: 10px;
 color: #BDC4D4;
+${({theme, isActive}) => isActive && css`
+    border-left: 3px solid ${theme.colorPrimary} ;
+`}
 
 &::before {
     content: '';
@@ -14,7 +17,7 @@ color: #BDC4D4;
     height: 1px;
     background: ${({theme}) =>  theme.bgMain};
     position: absolute;
-    top: 55px;
+    top: 60px;
     left: 23px;
 }
 

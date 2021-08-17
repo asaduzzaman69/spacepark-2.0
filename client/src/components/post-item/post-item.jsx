@@ -1,4 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// styled component
 import { PostActionItem } from "./post-item.styled";
 
 const PostItem = ({ isActive = false, text = '', icon, handleToggle = () => { } }) => {

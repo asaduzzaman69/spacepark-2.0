@@ -14,13 +14,22 @@ const getAll = (resource) => {
 
 const createOne = (resource, data) => {
     return axios
-    .post(`${BASE_URL}/${resource}`, {
-        ...data
+    .post(`${BASE_URL}/${resource}`, {} , {
+        headers: {
+            Authorization: 'Bearer ' + data        }
     })
     .then(handleRespose)
     .catch(handleError)
 }
 
+
+
+const updateOne = (resource, data) => {
+    return axios
+    .patch(`${BASE_URL}/${resource}`, data)
+    .then(handleRespose)
+    .catch(handleError)
+}
 
 const getOne = (resource, id) => {
     return axios
@@ -58,5 +67,6 @@ export const apiProvider = {
     getOne,
     remove,
     signUp,
-    createOne
+    createOne,
+    updateOne
 }
